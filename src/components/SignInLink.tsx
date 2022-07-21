@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const SignInLink = () => {
     const session = trpc.useQuery(["auth.getSession"]);
-    const url = session.data ? "/api/auth/signin" : "/api/auth/signout"
+    const url = session.data ? "/api/auth/signout" : "/api/auth/signin"
     const content = session.data ? "sign out" : "sign in"
 
     return (
