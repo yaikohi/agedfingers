@@ -4,6 +4,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Navbar from "../components/Navbar";
 import NavbarLink from "../components/NavbarLink";
+import PageHeader from "../components/PageHeader";
 import { trpc } from "../utils/trpc";
 
 type ArmorCardProps = {
@@ -17,12 +18,7 @@ const Armor: NextPage = () => {
 
     return (
         <>
-            <Head>
-                <title>Armor page</title>
-                <meta name="description" content="For looking at armor from elden ring." />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-
+            <PageHeader />
 
             <Navbar>
                 <NavbarLink href="/" link="home" />

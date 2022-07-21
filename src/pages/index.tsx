@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 import NavbarLink from "../components/NavbarLink";
+import PageHeader from "../components/PageHeader";
 import { trpc } from "../utils/trpc";
 
 type TodoCardProps = {
@@ -10,15 +11,10 @@ type TodoCardProps = {
 };
 
 const Home: NextPage = () => {
-  const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
-  const session = trpc.useQuery(["auth.getSession"]);
+
   return (
     <>
-      <Head>
-        <title>Aged Fingers</title>
-        <meta name="description" content="Online Elden Ring Build builder." />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <PageHeader />
 
       <Navbar>
         <NavbarLink href="/" link="home" />
@@ -26,9 +22,12 @@ const Home: NextPage = () => {
       </Navbar>
 
       <main className="container flex flex-col items-center justify-center h-screen p-4 mx-auto">
+
         <h1 className="text-5xl md:text-[5rem] leading-normal font-extrabold text-gray-700">
           Aged <span className="text-purple-300">Fingers</span>        </h1>
+
         <p className="text-2xl text-gray-700">I need to do the following things:</p>
+
         <div className="grid gap-3 pt-3 mt-3 text-center md:grid-cols-2 lg:w-2/3">
           <TodoCard
             name="Fix the database"
@@ -47,14 +46,8 @@ const Home: NextPage = () => {
             description="Yeah I want to learn this."
           />
         </div>
-        <div className="flex items-center justify-center w-full pt-6 text-2xl text-blue-500">
-          {hello.data ? <p>{hello.data.greeting}</p> : <p>Loading..</p>}
-        </div>
-        <div>
-          {session.data ? <>
-            <p>Hello {session.data.user?.name} </p>
-          </> : <p>Loading...</p>}
-        </div>
+        <TRPCTest />
+
       </main>
     </>
   );
@@ -71,5 +64,21 @@ const TodoCard = ({
     </section>
   );
 };
+
+const TRPCTest = () => {
+  const session = trpc.useQuery(["auth.getSession"]);
+  const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
+
+  return (
+    <>
+      <div className="flex items-center justify-center w-full pt-6 text-2xl text-blue-500">
+        {hello.data ? <p>{hello.data.greeting}</p> : <p>Loading..</p>}
+      </div>
+      {session.data ? <>
+        <p>Hello {session.data.user?.name} </p>
+      </> : <p>Loading...</p>}
+    </>
+  )
+}
 
 export default Home;
