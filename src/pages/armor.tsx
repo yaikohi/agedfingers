@@ -2,6 +2,8 @@ const url = "https://eldenring.fanapis.com/images/armors/17f696e0685l0i0nblzy58h
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Navbar from "../components/Navbar";
+import NavbarLink from "../components/NavbarLink";
 import { trpc } from "../utils/trpc";
 
 type ArmorCardProps = {
@@ -20,6 +22,13 @@ const Armor: NextPage = () => {
                 <meta name="description" content="For looking at armor from elden ring." />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+
+
+            <Navbar>
+                <NavbarLink href="/" link="home" />
+                <NavbarLink href="/armor" link="armor" />
+            </Navbar>
+
 
             <main className="container flex flex-col items-center justify-center h-screen p-4 mx-auto">
                 <h1 className="text-5xl md:text-[5rem] leading-normal font-extrabold text-gray-700">
