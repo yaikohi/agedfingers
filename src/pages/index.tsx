@@ -25,15 +25,10 @@ const Home: NextPage = () => {
           Aged <span className="text-purple-300">Fingers</span>{" "}
         </h1>
 
-        <p className="text-2xl text-gray-700">
-          I need to do the following things:
-        </p>
+        <p className="text-2xl text-gray-700">I need to do the following things:</p>
 
         <div className="grid gap-3 pt-3 mt-3 text-center md:grid-cols-2 lg:w-2/3">
-          <TodoCard
-            name="Fix the database"
-            description="Login, build builds, share builds?"
-          />
+          <TodoCard name="Fix the database" description="Login, build builds, share builds?" />
           <TodoCard
             name="Functionality"
             description="Drag & drop functionality for adding items to a build."

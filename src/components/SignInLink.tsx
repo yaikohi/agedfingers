@@ -9,9 +9,7 @@ export const SignInLink = () => {
   return (
     <>
       <Link href={url}>
-        <a className="p-2 mx-2 hover:text-purple-400 hover:underline">
-          {content}
-        </a>
+        <a className="p-2 mx-2 hover:text-purple-400 hover:underline">{content}</a>
       </Link>
     </>
   );

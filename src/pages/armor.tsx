@@ -1,5 +1,3 @@
-const url =
-  "https://eldenring.fanapis.com/images/armors/17f696e0685l0i0nblzy58h0qvewk.png";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -17,6 +15,7 @@ type ArmorCardProps = {
 const Armor: NextPage = () => {
   const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
 
+  const url = "https://eldenring.fanapis.com/images/armors/17f696e0685l0i0nblzy58h0qvewk.png";
   return (
     <>
       <PageHeader />
